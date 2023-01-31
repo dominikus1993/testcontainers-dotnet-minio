@@ -8,17 +8,13 @@
     <NukeRootDirectory>..</NukeRootDirectory>
     <NukeScriptDirectory>..</NukeScriptDirectory>
     <NukeTelemetryVersion>1</NukeTelemetryVersion>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Nuke.Common" />
 	  <PackageReference Include="docfx.console" ExcludeAssets="build" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="..\Directory.Packages.props">
-      <Link>boot\Directory.Packages.props</Link>
-    </Content>
   </ItemGroup>
 
 </Project>
