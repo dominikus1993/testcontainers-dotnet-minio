@@ -120,7 +120,7 @@ partial class Build : NukeBuild
     Target CreateNuget => _ => _
       .Unlisted()
       .Description("Creates nuget packages")
-      .DependsOn(Compile)
+      .DependsOn(RunTests)
       .Executes(() =>
       {
           var version = ReleaseNotes.Version.ToString();
@@ -272,7 +272,7 @@ partial class Build : NukeBuild
             {
                 SignClientSign(s => s
                 .SetProcessToolPath(ToolsDir / "SignClient.exe")
-                .SetProcessLogOutput(true)
+                .EnableProcessLogOutput()
                 .SetConfig(RootDirectory / "appsettings.json")
                 .SetDescription(SigningDescription)
                 .SetDescriptionUrl(SigningUrl)
@@ -304,7 +304,7 @@ partial class Build : NukeBuild
              {
                  DotNetRun(s => s
                  .SetApplicationArguments($"--no-build -c release --concurrent true --trace true --output {OutputPerfTests} --diagnostic")
-                 .SetProcessLogOutput(true)
+                 .EnableProcessLogOutput()
                  .SetProcessWorkingDirectory(Directory.GetParent(path).FullName)
                  .SetProcessExecutionTimeout((int)TimeSpan.FromMinutes(15).TotalMilliseconds)
                  );

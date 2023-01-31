@@ -2,12 +2,11 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>$(TestsNetCoreFramework)</TargetFramework>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NBench" Version="2.0.1" />
+    <PackageReference Include="NBench" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,9 +1,10 @@
 ﻿<Project>
   <PropertyGroup>
-    <Copyright>Copyright © 2022 Your Company</Copyright>
+    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    <Copyright>Copyright © 2020 Your Company</Copyright>
     <Authors>Your Authors</Authors>
-    <VersionPrefix>0.3.0</VersionPrefix>
-    <PackageReleaseNotes>• Fixed bugs</PackageReleaseNotes>
+    <VersionPrefix>7.7.0</VersionPrefix>
+    <PackageReleaseNotes>• Small fixes</PackageReleaseNotes>
     <PackageIconUrl>
     </PackageIconUrl>
     <PackageProjectUrl>
@@ -11,19 +12,16 @@
     <PackageLicenseUrl>
     </PackageLicenseUrl>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
   <PropertyGroup>
-    <LibraryFramework>net6.0</LibraryFramework>
-    <TestsNetCoreFramework>net6.0</TestsNetCoreFramework>
-    <NBenchVersion>1.2.2</NBenchVersion>
-    <XunitVersion>2.4.2</XunitVersion>
-    <XunitRunnerVisualstudio>2.4.5</XunitRunnerVisualstudio>
-    <TestSdkVersion>17.3.0</TestSdkVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <!-- SourceLink support for all Akka.NET projects -->
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
-	<None Include="$(MSBuildThisFileDirectory)\..\README.md" Pack="true" Visible="false" PackagePath="\" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" />
+    <None Include="$(MSBuildThisFileDirectory)\..\README.md" Pack="true" Visible="false" PackagePath="\" />
   </ItemGroup>
   <PropertyGroup>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
