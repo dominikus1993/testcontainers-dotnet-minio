@@ -4,21 +4,27 @@ using JetBrains.Annotations;
 
 namespace TestContainers.Minio.Configuration;
 
+public sealed record MinioConfig(string UserName = "ROOTNAME", string Password = "ChangeMe2137", string ImageName = "minio/minio",
+    string ImageTag = "RELEASE.2023-01-31T02-24-19Z", int Port = 9000)
+{
+    public static readonly MinioConfig Default = new MinioConfig();
+}
+
 [PublicAPI]
 public sealed class MinioConfiguration : ContainerConfiguration
 {
+    public MinioConfig MinioConfig { get; }
         /// <summary>
-    /// Initializes a new instance of the <see cref="ModuleNameConfiguration" /> class.
+    /// Initializes a new instance of the <see cref="MinioConfiguration" /> class.
     /// </summary>
     /// <param name="config">The ModuleName config.</param>
-    public MinioConfiguration(object? config = null)
-    {
-        // // Sets the custom builder methods property values.
-        // Config = config;
-    }
+    public MinioConfiguration(MinioConfig? config = null)
+        {
+            MinioConfig = config ?? MinioConfig.Default;
+        }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="ModuleNameConfiguration" /> class.
+    /// Initializes a new instance of the <see cref="MinioConfiguration" /> class.
     /// </summary>
     /// <param name="resourceConfiguration">The Docker resource configuration.</param>
     public MinioConfiguration(IResourceConfiguration<CreateContainerParameters> resourceConfiguration)
@@ -28,7 +34,7 @@ public sealed class MinioConfiguration : ContainerConfiguration
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="ModuleNameConfiguration" /> class.
+    /// Initializes a new instance of the <see cref="MinioConfiguration" /> class.
     /// </summary>
     /// <param name="resourceConfiguration">The Docker resource configuration.</param>
     public MinioConfiguration(IContainerConfiguration resourceConfiguration)
@@ -38,7 +44,7 @@ public sealed class MinioConfiguration : ContainerConfiguration
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="ModuleNameConfiguration" /> class.
+    /// Initializes a new instance of the <see cref="MinioConfiguration" /> class.
     /// </summary>
     /// <param name="resourceConfiguration">The Docker resource configuration.</param>
     public MinioConfiguration(MinioConfiguration resourceConfiguration)
@@ -48,7 +54,7 @@ public sealed class MinioConfiguration : ContainerConfiguration
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="ModuleNameConfiguration" /> class.
+    /// Initializes a new instance of the <see cref="MinioConfiguration" /> class.
     /// </summary>
     /// <param name="oldValue">The old Docker resource configuration.</param>
     /// <param name="newValue">The new Docker resource configuration.</param>
