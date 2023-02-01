@@ -1,4 +1,5 @@
 using Docker.DotNet.Models;
+using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Configurations;
 using JetBrains.Annotations;
 
@@ -61,7 +62,6 @@ public sealed class MinioConfiguration : ContainerConfiguration
     public MinioConfiguration(MinioConfiguration oldValue, MinioConfiguration newValue)
         : base(oldValue, newValue)
     {
-        // // Create an updated immutable copy of the module configuration.
-        // Config = BuildConfiguration.Combine(oldValue.Config, newValue.Config);
+        MinioConfig = BuildConfiguration.Combine(oldValue.MinioConfig, newValue.MinioConfig);
     }
 }
