@@ -6,11 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" />
     <PackageReference Include="Testcontainers" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Container" />
   </ItemGroup>
 	
 

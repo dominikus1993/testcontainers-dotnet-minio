@@ -40,11 +40,6 @@
         "resolved": "1.1.8",
         "contentHash": "t9OBRTf69gqpQ6yO4/VQj2B+EewRmwsmv5CG48Nb5nwRJv2BWx76TY2DILlbNYE4LooHrXhw59Sdzhs1HfD++Q=="
       },
-      "JetBrains.Annotations": {
-        "type": "Transitive",
-        "resolved": "2022.1.0",
-        "contentHash": "ASfpoFJxiRsC9Xc4TWuPM41Zb/gl64xwfMOhnOZ3RnVWGYIZchjpWQV5zshJgoc/ZxVtgjaF7b577lURj7E6ig=="
-      },
       "Microsoft.ApplicationInsights": {
         "type": "Transitive",
         "resolved": "2.20.0",
@@ -1542,6 +1537,12 @@
         "type": "Transitive",
         "resolved": "11.2.1",
         "contentHash": "tBt8K+korVfrjH9wyDEhiLKxbs8qoLCLIFwvYgkSUuMC9//w3z0cFQ8LQAI/5MCKq+BMil0cfRTRvPeE7eXhQw=="
+      },
+      "JetBrains.Annotations": {
+        "type": "CentralTransitive",
+        "requested": "[2022.3.1, )",
+        "resolved": "2022.1.0",
+        "contentHash": "ASfpoFJxiRsC9Xc4TWuPM41Zb/gl64xwfMOhnOZ3RnVWGYIZchjpWQV5zshJgoc/ZxVtgjaF7b577lURj7E6ig=="
       }
     }
   }
