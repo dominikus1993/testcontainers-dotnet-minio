@@ -24,10 +24,6 @@ public sealed class MinioTestcontainerConfiguration : TestcontainerDatabaseConfi
     {
         this.Environments.Add("MINIO_ROOT_USER", Username);
         this.Environments.Add("MINIO_ROOT_PASSWORD", Password);
-        this.Environments.Add("MINIO_ACCESS_KEY_FILE", " /run/secrets/minioaccess");
-        this.Environments.Add("MINIO_ACCESS_KEY_FILE", " /run/secrets/minioaccess");
-        this.Environments.Add("MINIO_ACCESS_KEY_FILE", " /run/secrets/minioaccess");
-        this.Environments.Add("MINIO_ACCESS_KEY_FILE", " /run/secrets/minioaccess");
     }
 
     public override string Database

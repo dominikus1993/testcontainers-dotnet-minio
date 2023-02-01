@@ -15,17 +15,14 @@ namespace TestContainers.Minio.Tests.Container;
 
 public sealed class MinioTestcontainerTests : IDisposable
 {
-    private LocalStackTestcontainer _minioTestcontainer;
-    private LocalStackTestcontainerConfiguration _minioTestcontainerConfiguration;
+    private MinioTestcontainer _minioTestcontainer;
+    private MinioTestcontainerConfiguration _minioTestcontainerConfiguration;
     public MinioTestcontainerTests()
     {
-        _minioTestcontainerConfiguration = new LocalStackTestcontainerConfiguration("localstack/localstack:1.3");
-        _minioTestcontainer = new TestcontainersBuilder<LocalStackTestcontainer>()
-            .WithEnvironment("S3_DIR", "/tmp/localstack/data")
-            .WithEnvironment("SERVICES", "s3}")
-            .WithEnvironment("DEFAULT_REGION", "eu-west-1")
-            .WithEnvironment("USE_SSL", "false")
-            .WithMessageBroker(_minioTestcontainerConfiguration)
+        _minioTestcontainerConfiguration = new MinioTestcontainerConfiguration();
+        _minioTestcontainer = new TestcontainersBuilder<MinioTestcontainer>()
+            .WithCommand("server", "/data")
+            .WithDatabase(_minioTestcontainerConfiguration)
             .Build();
     }
 
@@ -33,17 +30,14 @@ public sealed class MinioTestcontainerTests : IDisposable
     public async Task TestMinio()
     {
         await _minioTestcontainer.StartAsync();
-        var uri = new UriBuilder(_minioTestcontainer.ConnectionString)
-        {
-            Scheme = "http"
-        };
         var config = new AmazonS3Config
         {
-            ServiceURL = uri.Uri.AbsoluteUri,
-            UseHttp = false,
+            AuthenticationRegion = "eu-west-1",
+            ServiceURL = _minioTestcontainer.ConnectionString,
+            UseHttp = true,
             ForcePathStyle = true
         };
-        var s3 = new AmazonS3Client(config);
+        var s3 = new AmazonS3Client(_minioTestcontainerConfiguration.Username, _minioTestcontainerConfiguration.Password, config);
 
         await s3.PutBucketAsync("somebucket");
 
