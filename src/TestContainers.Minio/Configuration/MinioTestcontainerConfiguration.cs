@@ -13,17 +13,21 @@ namespace TestContainers.Minio.Configuration;
 [PublicAPI]
 public sealed class MinioTestcontainerConfiguration : TestcontainerDatabaseConfiguration
 {
-    private const string Tag = "minio/minio:RELEASE.2022-08-08T18-34-09Z";
+    private const string Tag = "RELEASE.2023-01-31T02-24-19Z";
     private const string MinioImage = $"minio/minio:{Tag}";
     private const int MinioPort = 9000;
-    private const string MinioAccessKey = "ROOTNAME";
-    private const string MinioSecretKey = "CHANGEME123";
+    private const string MinioUser = "ROOTNAME";
+    private const string MinioPassword = "CHANGEME123";
     public const string HealthPath = "/minio/health/ready";
 
     public MinioTestcontainerConfiguration(string image = MinioImage) : base(image, MinioPort)
     {
-        this.Environments.Add("MINIO_ACCESS_KEY", AccessKey);
-        this.Environments.Add("MINIO_SECRET_KEY", SecretKey);
+        this.Environments.Add("MINIO_ROOT_USER", Username);
+        this.Environments.Add("MINIO_ROOT_PASSWORD", Password);
+        this.Environments.Add("MINIO_ACCESS_KEY_FILE", " /run/secrets/minioaccess");
+        this.Environments.Add("MINIO_ACCESS_KEY_FILE", " /run/secrets/minioaccess");
+        this.Environments.Add("MINIO_ACCESS_KEY_FILE", " /run/secrets/minioaccess");
+        this.Environments.Add("MINIO_ACCESS_KEY_FILE", " /run/secrets/minioaccess");
     }
 
     public override string Database
@@ -31,14 +35,17 @@ public sealed class MinioTestcontainerConfiguration : TestcontainerDatabaseConfi
         get => string.Empty;
         set => throw new NotImplementedException();
     }
-
+    
+    public Func<IRunningDockerContainer, CancellationToken, Task> StartupCallback
+        => (container, ct) =>
+        {
+            return container.ExecAsync(new[] { "server", "/data" }, ct);
+        };
+    
     /// <inheritdoc />
-    public override string Username { get; set; } = MinioAccessKey;
+    public override string Username { get; set; } = MinioUser;
 
-    public override string Password { get; set; } = MinioSecretKey;
-
-    public string AccessKey { get; set; } = MinioAccessKey;
-    public string SecretKey { get; set; } = MinioSecretKey;
+    public override string Password { get; set; } = MinioPassword;
     
     //public override IWaitForContainerOS WaitStrategy => Wait.ForUnixContainer().UntilCommandIsCompleted("server", "--address", $"0.0.0.0:{MinioPort}", "/data");
 

@@ -1,0 +1,15 @@
+﻿{
+  Database: ,
+  Username: ROOTNAME,
+  Password: CHANGEME123,
+  WaitStrategy: {},
+  Image: quay.io/minio/minio,
+  DefaultPort: 9000,
+  Environments: {
+    MINIO_ROOT_PASSWORD: CHANGEME123,
+    MINIO_ROOT_USER: ROOTNAME
+  },
+  OutputConsumer: {
+    Enabled: false
+  }
+}

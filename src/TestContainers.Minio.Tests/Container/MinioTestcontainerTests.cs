@@ -15,13 +15,17 @@ namespace TestContainers.Minio.Tests.Container;
 
 public sealed class MinioTestcontainerTests : IDisposable
 {
-    private MinioTestcontainer _minioTestcontainer;
-
+    private LocalStackTestcontainer _minioTestcontainer;
+    private LocalStackTestcontainerConfiguration _minioTestcontainerConfiguration;
     public MinioTestcontainerTests()
     {
-        var configuration = new MinioTestcontainerConfiguration();
-        _minioTestcontainer = new TestcontainersBuilder<MinioTestcontainer>()
-            .WithDatabase(configuration)
+        _minioTestcontainerConfiguration = new LocalStackTestcontainerConfiguration("localstack/localstack:1.3");
+        _minioTestcontainer = new TestcontainersBuilder<LocalStackTestcontainer>()
+            .WithEnvironment("S3_DIR", "/tmp/localstack/data")
+            .WithEnvironment("SERVICES", "s3}")
+            .WithEnvironment("DEFAULT_REGION", "eu-west-1")
+            .WithEnvironment("USE_SSL", "false")
+            .WithMessageBroker(_minioTestcontainerConfiguration)
             .Build();
     }
 
@@ -29,16 +33,19 @@ public sealed class MinioTestcontainerTests : IDisposable
     public async Task TestMinio()
     {
         await _minioTestcontainer.StartAsync();
+        var uri = new UriBuilder(_minioTestcontainer.ConnectionString)
+        {
+            Scheme = "http"
+        };
         var config = new AmazonS3Config
         {
-            AuthenticationRegion = "eu-west-1",
-            ServiceURL = _minioTestcontainer.ConnectionString,
+            ServiceURL = uri.Uri.AbsoluteUri,
             UseHttp = false,
             ForcePathStyle = true
         };
-        var s3 = new AmazonS3Client("wypierdalaj", "xDDD", config);
+        var s3 = new AmazonS3Client(config);
 
-        await s3.PutBucketAsync("test_bucket");
+        await s3.PutBucketAsync("somebucket");
 
         var buckets = await s3.ListBucketsAsync();
 
