@@ -17,6 +17,7 @@ public sealed class MinioTestcontainerTests : IDisposable
 {
     private MinioTestcontainer _minioTestcontainer;
     private MinioTestcontainerConfiguration _minioTestcontainerConfiguration;
+
     public MinioTestcontainerTests()
     {
         _minioTestcontainerConfiguration = new MinioTestcontainerConfiguration();

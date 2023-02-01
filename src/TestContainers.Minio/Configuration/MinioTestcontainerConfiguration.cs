@@ -7,6 +7,7 @@ using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Containers;
 using JetBrains.Annotations;
+using IContainer = DotNet.Testcontainers.Containers.IContainer;
 
 namespace TestContainers.Minio.Configuration;
 
@@ -32,7 +33,7 @@ public sealed class MinioTestcontainerConfiguration : TestcontainerDatabaseConfi
         set => throw new NotImplementedException();
     }
     
-    public Func<IRunningDockerContainer, CancellationToken, Task> StartupCallback
+    public Func<IContainer, CancellationToken, Task> StartupCallback
         => (container, ct) =>
         {
             return container.ExecAsync(new[] { "server", "/data" }, ct);

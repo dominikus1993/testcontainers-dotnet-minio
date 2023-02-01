@@ -15,7 +15,7 @@ public sealed class MinioTestcontainer : TestcontainerDatabase
     /// </summary>
     /// <param name="configuration">The Testcontainers configuration.</param>
     /// <param name="logger">The logger.</param>
-    internal MinioTestcontainer(ITestcontainersConfiguration configuration, ILogger logger) : base(configuration, logger)
+    internal MinioTestcontainer(IContainerConfiguration configuration, ILogger logger) : base(configuration, logger)
     {
         
     }
