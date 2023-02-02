@@ -1,0 +1,23 @@
+﻿{
+  MinioConfig: {
+    UserName: ROOTNAME,
+    Password: ChangeMe2137,
+    ImageName: minio/minio,
+    ImageTag: RELEASE.2023-01-31T02-24-19Z,
+    Port: 9000,
+    Image: minio/minio:RELEASE.2023-01-31T02-24-19Z
+  },
+  Image: {
+    Repository: minio,
+    Name: minio,
+    Tag: RELEASE.2023-01-31T02-24-19Z,
+    FullName: minio/minio:RELEASE.2023-01-31T02-24-19Z
+  },
+  Environments: {
+    MINIO_ROOT_PASSWORD: ChangeMe2137,
+    MINIO_ROOT_USER: ROOTNAME
+  },
+  ExposedPorts: {
+    9000: 9000
+  }
+}
