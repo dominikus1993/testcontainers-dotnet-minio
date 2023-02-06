@@ -17,4 +17,10 @@
     <ProjectReference Include="..\TestContainers.Minio\TestContainers.Minio.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="jp2137.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
