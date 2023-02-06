@@ -1,45 +1,59 @@
 using System;
-using System.Collections.Generic;
-using Docker.DotNet.Models;
-using DotNet.Testcontainers.Builders;
-using DotNet.Testcontainers.Configurations;
-using DotNet.Testcontainers.Images;
-using JetBrains.Annotations;
 
 namespace TestContainers.Minio.Configuration;
 
-public sealed record MinioConfig(string UserName = "ROOTNAME", string Password = "ChangeMe2137",
-    string ImageName = "minio/minio",
-    string ImageTag = "RELEASE.2023-01-31T02-24-19Z", int Port = 9000)
+public sealed class MinioConfig
 {
     public string Image => $"{ImageName}:{ImageTag}";
+    public string UserName { get; init; }
+    public string Password { get; init; }
+    public string ImageName { get; init; }
+    public string ImageTag { get; init; }
+    public int Port { get; init; }
     public static readonly MinioConfig Default = new();
+
+    public MinioConfig(string UserName = "ROOTNAME", string Password = "ChangeMe2137",
+        string ImageName = "minio/minio",
+        string ImageTag = "RELEASE.2023-01-31T02-24-19Z", int Port = 9000)
+    {
+        this.UserName = UserName;
+        this.Password = Password;
+        this.ImageName = ImageName;
+        this.ImageTag = ImageTag;
+        this.Port = Port;
+    }
+
+    public void Deconstruct(out string UserName, out string Password, out string ImageName, out string ImageTag,
+        out int Port)
+    {
+        UserName = this.UserName;
+        Password = this.Password;
+        ImageName = this.ImageName;
+        ImageTag = this.ImageTag;
+        Port = this.Port;
+    }
 }
 
 [PublicAPI]
 public sealed class MinioConfiguration : ContainerConfiguration
 {
-    public MinioConfig MinioConfig { get; }
+    public string Image => $"{ImageName}:{ImageTag}";
+    public string UserName { get; init; }
+    public string Password { get; init; }
+    public string ImageName { get; init; }
+    public string ImageTag { get; init; }
+    public int Port { get; init; }
 
-    private static IReadOnlyDictionary<string, string> MinioEnv(MinioConfig config) => new Dictionary<string, string>()
-    {
-        { "MINIO_ROOT_USER", config.UserName },
-        { "MINIO_ROOT_PASSWORD", config.Password },
-    };
-    
-    private static IReadOnlyDictionary<string, string> MinioPorts(MinioConfig config) => new Dictionary<string, string>()
-    {
-        { $"{config.Port}", $"{config.Port}" },
-    };
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="MinioConfiguration" /> class.
-    /// </summary>
-    /// <param name="config">The Minio config.</param>
-    public MinioConfiguration(MinioConfig config) : base(new DockerImage(config.Image), environments: MinioEnv(config), exposedPorts: MinioPorts(config))
+    public MinioConfiguration(string userName = "ROOTNAME", string password = "ChangeMe2137",
+        string imageName = "minio/minio",
+        string imageTag = "RELEASE.2023-01-31T02-24-19Z", int port = 9000)
     {
-        ArgumentNullException.ThrowIfNull(config);
-        MinioConfig = config;
+        this.UserName = userName;
+        this.Password = password;
+        this.ImageName = imageName;
+        this.ImageTag = imageTag;
+        this.Port = port;
     }
 
     /// <summary>
@@ -67,7 +81,7 @@ public sealed class MinioConfiguration : ContainerConfiguration
     /// </summary>
     /// <param name="resourceConfiguration">The Docker resource configuration.</param>
     public MinioConfiguration(MinioConfiguration resourceConfiguration)
-        : this(new MinioConfiguration(MinioConfig.Default), resourceConfiguration)
+        : this(new MinioConfiguration(), resourceConfiguration)
     {
         // Passes the configuration upwards to the base implementations to create an updated immutable copy.
     }
@@ -80,6 +94,10 @@ public sealed class MinioConfiguration : ContainerConfiguration
     public MinioConfiguration(MinioConfiguration oldValue, MinioConfiguration newValue)
         : base(oldValue, newValue)
     {
-        MinioConfig = BuildConfiguration.Combine(oldValue.MinioConfig, newValue.MinioConfig);
+        UserName = BuildConfiguration.Combine(oldValue.UserName, newValue.UserName);
+        Password = BuildConfiguration.Combine(oldValue.Password, newValue.Password);
+        Port = BuildConfiguration.Combine(oldValue.Port, newValue.Port);
+        ImageName = BuildConfiguration.Combine(oldValue.ImageName, newValue.ImageName);
+        ImageTag = BuildConfiguration.Combine(oldValue.ImageTag, newValue.ImageTag);
     }
 }

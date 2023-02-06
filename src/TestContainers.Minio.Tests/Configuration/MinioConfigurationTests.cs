@@ -9,7 +9,7 @@ public class MinioConfigurationTests
     [Fact]
     public async Task TestMinio()
     {
-        var configuration = new MinioConfiguration(MinioConfig.Default);
+        var configuration = new MinioConfiguration();
         await Verifier.Verify(configuration);
     }
 }
