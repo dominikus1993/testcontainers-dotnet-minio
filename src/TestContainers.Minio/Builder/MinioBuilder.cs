@@ -24,7 +24,7 @@ public sealed class MinioBuilder : ContainerBuilder<MinioBuilder, MinioContainer
         DockerResourceConfiguration = Init().DockerResourceConfiguration;
     }
     
-    private MinioBuilder WithUsername(string username)
+    public MinioBuilder WithUsername(string username)
     {
         return Merge(DockerResourceConfiguration, new MinioConfiguration(userName: username))
             .WithEnvironment("MINIO_ROOT_USER", username);

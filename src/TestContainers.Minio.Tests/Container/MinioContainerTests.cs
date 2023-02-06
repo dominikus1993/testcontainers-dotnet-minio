@@ -78,9 +78,9 @@ public sealed class MinioContainerTests : IAsyncLifetime
     [Fact]
     public void TestMinioWithEmptyUsername()
     {
-        var ct = new MinioBuilder().WithPassword(null!);
+        var ct = new MinioBuilder().WithUsername(string.Empty);
 
-        Assert.Throws<InvalidOperationException>(() => ct.Build());
+        Assert.Throws<ArgumentException>(() => ct.Build());
     }
 
     public async Task InitializeAsync()
