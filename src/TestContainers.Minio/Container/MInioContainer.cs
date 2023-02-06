@@ -1,3 +1,4 @@
+using TestContainers.Minio.Builder;
 using TestContainers.Minio.Configuration;
 
 namespace TestContainers.Minio.Container;
@@ -33,7 +34,7 @@ public sealed class MinioContainer: DockerContainer
     
     public string GetMinioUrl()
     {
-        var port = GetMappedPublicPort(_configuration.Port);
+        var port = GetMappedPublicPort(MinioBuilder.MinioPort);
         return $"http://{Hostname}:{port}";
     }
 }

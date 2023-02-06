@@ -16,21 +16,16 @@ public sealed class MinioConfiguration : ContainerConfiguration
     public string Password { get; init; }
     public string ImageName { get; init; }
     public string ImageTag { get; init; }
-    /// <summary>
-    /// Minio Port
-    /// </summary>
-    public ushort Port { get; init; }
 
 
     public MinioConfiguration(string userName = "ROOTNAME", string password = "ChangeMe2137",
         string imageName = "minio/minio",
-        string imageTag = "RELEASE.2023-01-31T02-24-19Z", ushort port = 9000) : base()
+        string imageTag = "RELEASE.2023-01-31T02-24-19Z") : base()
     {
         this.UserName = userName;
         this.Password = password;
         this.ImageName = imageName;
         this.ImageTag = imageTag;
-        this.Port = port;
     }
 
     /// <summary>
@@ -73,7 +68,6 @@ public sealed class MinioConfiguration : ContainerConfiguration
     {
         UserName = BuildConfiguration.Combine(oldValue.UserName, newValue.UserName);
         Password = BuildConfiguration.Combine(oldValue.Password, newValue.Password);
-        Port = BuildConfiguration.Combine(oldValue.Port, newValue.Port);
         ImageName = BuildConfiguration.Combine(oldValue.ImageName, newValue.ImageName);
         ImageTag = BuildConfiguration.Combine(oldValue.ImageTag, newValue.ImageTag);
     }

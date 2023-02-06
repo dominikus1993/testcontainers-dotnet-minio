@@ -9,10 +9,13 @@ namespace TestContainers.Minio.Builder;
 
 public sealed class MinioBuilder : ContainerBuilder<MinioBuilder, MinioContainer, MinioConfiguration>
 {
+    public const ushort MinioPort = 9000;
     protected override MinioConfiguration DockerResourceConfiguration { get; }
+    
     public MinioBuilder(MinioConfiguration dockerResourceConfiguration) : base(dockerResourceConfiguration)
     {
         DockerResourceConfiguration = dockerResourceConfiguration;
+        
     }
 
     public MinioBuilder()
@@ -21,7 +24,7 @@ public sealed class MinioBuilder : ContainerBuilder<MinioBuilder, MinioContainer
         DockerResourceConfiguration = Init().DockerResourceConfiguration;
     }
     
-    public MinioBuilder WithUsername(string username)
+    private MinioBuilder WithUsername(string username)
     {
         return Merge(DockerResourceConfiguration, new MinioConfiguration(userName: username))
             .WithEnvironment("MINIO_ROOT_USER", username);
@@ -37,11 +40,11 @@ public sealed class MinioBuilder : ContainerBuilder<MinioBuilder, MinioContainer
     {
         return base.Init()
             .WithImage(DockerResourceConfiguration.Image)
-            .WithPortBinding(DockerResourceConfiguration.Port, true)
+            .WithPortBinding(MinioPort, true)
             .WithUsername(DockerResourceConfiguration.UserName)
             .WithPassword(DockerResourceConfiguration.Password)
             .WithCommand("server", "/data")
-            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(DockerResourceConfiguration.Port));
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(MinioPort));
     }
     
     

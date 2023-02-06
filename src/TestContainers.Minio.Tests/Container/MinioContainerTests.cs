@@ -9,6 +9,7 @@ using TestContainers.Minio.Container;
 
 namespace TestContainers.Minio.Tests.Container;
 
+[UsesVerify]
 public sealed class MinioContainerTests : IDisposable
 {
     private MinioContainer _minioTestcontainer;
@@ -17,7 +18,7 @@ public sealed class MinioContainerTests : IDisposable
     public MinioContainerTests()
     {
         _minioTestcontainerConfiguration = new MinioConfiguration();
-        _minioTestcontainer = new MinioBuilder(_minioTestcontainerConfiguration).Build();
+        _minioTestcontainer = new MinioBuilder().Build();
     }
 
     [Fact]
@@ -39,13 +40,6 @@ public sealed class MinioContainerTests : IDisposable
 
         buckets.ShouldNotBeNull();
         buckets.Buckets.ShouldNotBeEmpty();
-    }
-    
-    [Fact]
-    public Task TestMinioContainerDefinition()
-    {
-        var container = _minioTestcontainer;
-        return Verifier.Verify(container);
     }
 
 
