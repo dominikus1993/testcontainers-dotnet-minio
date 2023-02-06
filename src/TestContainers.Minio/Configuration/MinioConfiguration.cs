@@ -6,16 +6,25 @@ namespace TestContainers.Minio.Configuration;
 public sealed class MinioConfiguration : ContainerConfiguration
 {
     public string Image => $"{ImageName}:{ImageTag}";
+    /// <summary>
+    /// Minio UserName
+    /// </summary>
     public string UserName { get; init; }
+    /// <summary>
+    /// Minio Password
+    /// </summary>
     public string Password { get; init; }
     public string ImageName { get; init; }
     public string ImageTag { get; init; }
-    public int Port { get; init; }
+    /// <summary>
+    /// Minio Port
+    /// </summary>
+    public ushort Port { get; init; }
 
 
     public MinioConfiguration(string userName = "ROOTNAME", string password = "ChangeMe2137",
         string imageName = "minio/minio",
-        string imageTag = "RELEASE.2023-01-31T02-24-19Z", int port = 9000)
+        string imageTag = "RELEASE.2023-01-31T02-24-19Z", ushort port = 9000) : base()
     {
         this.UserName = userName;
         this.Password = password;

@@ -42,6 +42,21 @@
           "Microsoft.CSharp": "4.7.0"
         }
       },
+      "Testcontainers": {
+        "type": "Direct",
+        "requested": "[2.4.0, )",
+        "resolved": "2.4.0",
+        "contentHash": "D+CFr/SoDf9yjRIJVDAxNf7ZqofkK60NGOW3YyotHDiiOv2K6TWUj1dqYQqOHncBrX4y75kTsWe4BdCARCTDiQ==",
+        "dependencies": {
+          "Docker.DotNet": "3.125.12",
+          "Docker.DotNet.X509": "3.125.12",
+          "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.3",
+          "Portable.BouncyCastle": "1.9.0",
+          "SharpZipLib": "1.4.1",
+          "System.Text.Json": "6.0.7"
+        }
+      },
       "Verify.Xunit": {
         "type": "Direct",
         "requested": "[19.8.0, )",
@@ -1198,21 +1213,6 @@
         "requested": "[2022.3.1, )",
         "resolved": "2022.3.1",
         "contentHash": "11nsS3+lFICGkztVs9PP2NRItxf9fF+qD6xEW/T0YGto52zj07wseUeBdMAU1ah9HNVTDZyRC1u4NWdtJScwhw=="
-      },
-      "Testcontainers": {
-        "type": "CentralTransitive",
-        "requested": "[2.4.0, )",
-        "resolved": "2.4.0",
-        "contentHash": "D+CFr/SoDf9yjRIJVDAxNf7ZqofkK60NGOW3YyotHDiiOv2K6TWUj1dqYQqOHncBrX4y75kTsWe4BdCARCTDiQ==",
-        "dependencies": {
-          "Docker.DotNet": "3.125.12",
-          "Docker.DotNet.X509": "3.125.12",
-          "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "6.0.3",
-          "Portable.BouncyCastle": "1.9.0",
-          "SharpZipLib": "1.4.1",
-          "System.Text.Json": "6.0.7"
-        }
       },
       "xunit.assert": {
         "type": "CentralTransitive",
@@ -1265,6 +1265,21 @@
           "Microsoft.CSharp": "4.7.0"
         }
       },
+      "Testcontainers": {
+        "type": "Direct",
+        "requested": "[2.4.0, )",
+        "resolved": "2.4.0",
+        "contentHash": "D+CFr/SoDf9yjRIJVDAxNf7ZqofkK60NGOW3YyotHDiiOv2K6TWUj1dqYQqOHncBrX4y75kTsWe4BdCARCTDiQ==",
+        "dependencies": {
+          "Docker.DotNet": "3.125.12",
+          "Docker.DotNet.X509": "3.125.12",
+          "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.3",
+          "Portable.BouncyCastle": "1.9.0",
+          "SharpZipLib": "1.4.1",
+          "System.Text.Json": "6.0.7"
+        }
+      },
       "Verify.Xunit": {
         "type": "Direct",
         "requested": "[19.8.0, )",
@@ -2421,21 +2436,6 @@
         "requested": "[2022.3.1, )",
         "resolved": "2022.3.1",
         "contentHash": "11nsS3+lFICGkztVs9PP2NRItxf9fF+qD6xEW/T0YGto52zj07wseUeBdMAU1ah9HNVTDZyRC1u4NWdtJScwhw=="
-      },
-      "Testcontainers": {
-        "type": "CentralTransitive",
-        "requested": "[2.4.0, )",
-        "resolved": "2.4.0",
-        "contentHash": "D+CFr/SoDf9yjRIJVDAxNf7ZqofkK60NGOW3YyotHDiiOv2K6TWUj1dqYQqOHncBrX4y75kTsWe4BdCARCTDiQ==",
-        "dependencies": {
-          "Docker.DotNet": "3.125.12",
-          "Docker.DotNet.X509": "3.125.12",
-          "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "6.0.3",
-          "Portable.BouncyCastle": "1.9.0",
-          "SharpZipLib": "1.4.1",
-          "System.Text.Json": "6.0.7"
-        }
       },
       "xunit.assert": {
         "type": "CentralTransitive",

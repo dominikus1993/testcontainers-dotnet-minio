@@ -9,14 +9,18 @@ namespace TestContainers.Minio.Builder;
 
 public sealed class MinioBuilder : ContainerBuilder<MinioBuilder, MinioContainer, MinioConfiguration>
 {
-    private readonly string _image;
-    private readonly int _port;
+    protected override MinioConfiguration DockerResourceConfiguration { get; }
     public MinioBuilder(MinioConfiguration dockerResourceConfiguration) : base(dockerResourceConfiguration)
     {
-        _image = dockerResourceConfiguration.Image;
-        _port = dockerResourceConfiguration.Port;
+        DockerResourceConfiguration = dockerResourceConfiguration;
     }
 
+    public MinioBuilder()
+        : this(new MinioConfiguration())
+    {
+        DockerResourceConfiguration = Init().DockerResourceConfiguration;
+    }
+    
     public MinioBuilder WithUsername(string username)
     {
         return Merge(DockerResourceConfiguration, new MinioConfiguration(userName: username))
@@ -32,12 +36,12 @@ public sealed class MinioBuilder : ContainerBuilder<MinioBuilder, MinioContainer
     protected override MinioBuilder Init()
     {
         return base.Init()
-            .WithImage(_image)
-            .WithPortBinding(_port, true)
+            .WithImage(DockerResourceConfiguration.Image)
+            .WithPortBinding(DockerResourceConfiguration.Port, true)
             .WithUsername(DockerResourceConfiguration.UserName)
             .WithPassword(DockerResourceConfiguration.Password)
             .WithCommand("server", "/data")
-            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(_port));
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(DockerResourceConfiguration.Port));
     }
     
     

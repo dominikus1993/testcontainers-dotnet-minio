@@ -40,6 +40,14 @@ public sealed class MinioContainerTests : IDisposable
         buckets.ShouldNotBeNull();
         buckets.Buckets.ShouldNotBeEmpty();
     }
+    
+    [Fact]
+    public Task TestMinioContainerDefinition()
+    {
+        var container = _minioTestcontainer;
+        return Verifier.Verify(container);
+    }
+
 
     public void Dispose()
     {
