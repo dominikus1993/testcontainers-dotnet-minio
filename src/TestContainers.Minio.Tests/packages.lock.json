@@ -4,11 +4,11 @@
     "net6.0": {
       "AWSSDK.S3": {
         "type": "Direct",
-        "requested": "[3.7.102.1, )",
-        "resolved": "3.7.102.1",
-        "contentHash": "C9Oz2+M7UmXG+SQpC8FT/NXoRdy5dCr37cUfVI/Dv16IyTzqw5H/RgvcHIjCQwZZmr163/LG6Q1Fu3la0bx+cA==",
+        "requested": "[3.7.103.2, )",
+        "resolved": "3.7.103.2",
+        "contentHash": "SGO7O93uERU0eEfsQk1GEVz/7/9T3X5kXRRlR6ls7OLzPHdLK3PKlh2Ci15CrruZkCwfPlT2Dryl8HgDWiAxoQ==",
         "dependencies": {
-          "AWSSDK.Core": "[3.7.103.25, 4.0.0)"
+          "AWSSDK.Core": "[3.7.104.2, 4.0.0)"
         }
       },
       "Microsoft.NET.Test.Sdk": {
@@ -59,12 +59,12 @@
       },
       "Verify.Xunit": {
         "type": "Direct",
-        "requested": "[19.8.0, )",
-        "resolved": "19.8.0",
-        "contentHash": "EzzYZDbfvFUeEJKVGJAyMM83NolG6ME2LdHcrbKm43wIucunnIWpKTTzoJb3g5ZqTCHRuAveJtBeZ0i1enGeKw==",
+        "requested": "[19.9.2, )",
+        "resolved": "19.9.2",
+        "contentHash": "HGgre4CLb+ZvuZCzmRr5A9NKow+9YZP3Il8JPQgBYdHGKUukh1bi06kHsTtpZ3hl76f1XYJrwYTGjrSBSgr4mg==",
         "dependencies": {
           "EmptyFiles": "4.1.0",
-          "Verify": "19.8.0",
+          "Verify": "19.9.2",
           "xunit.abstractions": "2.0.3",
           "xunit.extensibility.execution": "2.4.2"
         }
@@ -88,13 +88,13 @@
       },
       "Argon": {
         "type": "Transitive",
-        "resolved": "0.3.1",
-        "contentHash": "UYTiX5V8/Ep+8HNlx70nfd/oSn3DD0M8CSrmpoY21NwiO+VC+LughDQWsC+UjsWiX9ImNG7hcxi5c9+jtZj/DQ=="
+        "resolved": "0.3.3",
+        "contentHash": "pxmMQlVsJrBKpACmOiMvdoqyumVI5ZaypaJsa01/BL13lTxnuM7xHRVT339Io6p/zwWQ4zn8ru29BCwu4nWUyA=="
       },
       "AWSSDK.Core": {
         "type": "Transitive",
-        "resolved": "3.7.103.25",
-        "contentHash": "Uu+1NYb5/CZ33pwmbAAVIgNByffjDGHjxam3GYybEjdkp+1XNShIYreEwN5AHdMLcpCa5KFtJuGyVXVtp74hyQ=="
+        "resolved": "3.7.104.2",
+        "contentHash": "8bYWJvpNrdoA+xsYQHF38EY9OSafsCeuBhHVWd4P7GqnNzk3CEyx/AmxYtHdXUycK4WDtPB0IQmcfzQmVsrLSw=="
       },
       "DiffEngine": {
         "type": "Transitive",
@@ -1154,10 +1154,10 @@
       },
       "Verify": {
         "type": "Transitive",
-        "resolved": "19.8.0",
-        "contentHash": "Z77d2t2OKhtnECYptsPTlLFxs38NWnGVccrTM36t6XQ7gJ9I0BlaeyBDavT8tTdgJZ6nzMJ9YU1eNcrz+plYQg==",
+        "resolved": "19.9.2",
+        "contentHash": "/SKL6aumBuIXJRBaW2zNXc9NljYYVDrXYk8X6O0jJh+ROg4T71LmFSqYzjrHoeXoVIZdh2QwzcnHGqxy3aEI8A==",
         "dependencies": {
-          "Argon": "0.3.1",
+          "Argon": "0.3.3",
           "DiffEngine": "11.1.0",
           "EmptyFiles": "4.1.0",
           "SimpleInfoName": "2.1.0"
@@ -1227,11 +1227,11 @@
     "net7.0": {
       "AWSSDK.S3": {
         "type": "Direct",
-        "requested": "[3.7.102.1, )",
-        "resolved": "3.7.102.1",
-        "contentHash": "C9Oz2+M7UmXG+SQpC8FT/NXoRdy5dCr37cUfVI/Dv16IyTzqw5H/RgvcHIjCQwZZmr163/LG6Q1Fu3la0bx+cA==",
+        "requested": "[3.7.103.2, )",
+        "resolved": "3.7.103.2",
+        "contentHash": "SGO7O93uERU0eEfsQk1GEVz/7/9T3X5kXRRlR6ls7OLzPHdLK3PKlh2Ci15CrruZkCwfPlT2Dryl8HgDWiAxoQ==",
         "dependencies": {
-          "AWSSDK.Core": "[3.7.103.25, 4.0.0)"
+          "AWSSDK.Core": "[3.7.104.2, 4.0.0)"
         }
       },
       "Microsoft.NET.Test.Sdk": {
@@ -1282,12 +1282,12 @@
       },
       "Verify.Xunit": {
         "type": "Direct",
-        "requested": "[19.8.0, )",
-        "resolved": "19.8.0",
-        "contentHash": "EzzYZDbfvFUeEJKVGJAyMM83NolG6ME2LdHcrbKm43wIucunnIWpKTTzoJb3g5ZqTCHRuAveJtBeZ0i1enGeKw==",
+        "requested": "[19.9.2, )",
+        "resolved": "19.9.2",
+        "contentHash": "HGgre4CLb+ZvuZCzmRr5A9NKow+9YZP3Il8JPQgBYdHGKUukh1bi06kHsTtpZ3hl76f1XYJrwYTGjrSBSgr4mg==",
         "dependencies": {
           "EmptyFiles": "4.1.0",
-          "Verify": "19.8.0",
+          "Verify": "19.9.2",
           "xunit.abstractions": "2.0.3",
           "xunit.extensibility.execution": "2.4.2"
         }
@@ -1311,13 +1311,13 @@
       },
       "Argon": {
         "type": "Transitive",
-        "resolved": "0.3.1",
-        "contentHash": "UYTiX5V8/Ep+8HNlx70nfd/oSn3DD0M8CSrmpoY21NwiO+VC+LughDQWsC+UjsWiX9ImNG7hcxi5c9+jtZj/DQ=="
+        "resolved": "0.3.3",
+        "contentHash": "pxmMQlVsJrBKpACmOiMvdoqyumVI5ZaypaJsa01/BL13lTxnuM7xHRVT339Io6p/zwWQ4zn8ru29BCwu4nWUyA=="
       },
       "AWSSDK.Core": {
         "type": "Transitive",
-        "resolved": "3.7.103.25",
-        "contentHash": "Uu+1NYb5/CZ33pwmbAAVIgNByffjDGHjxam3GYybEjdkp+1XNShIYreEwN5AHdMLcpCa5KFtJuGyVXVtp74hyQ=="
+        "resolved": "3.7.104.2",
+        "contentHash": "8bYWJvpNrdoA+xsYQHF38EY9OSafsCeuBhHVWd4P7GqnNzk3CEyx/AmxYtHdXUycK4WDtPB0IQmcfzQmVsrLSw=="
       },
       "DiffEngine": {
         "type": "Transitive",
@@ -2377,10 +2377,10 @@
       },
       "Verify": {
         "type": "Transitive",
-        "resolved": "19.8.0",
-        "contentHash": "Z77d2t2OKhtnECYptsPTlLFxs38NWnGVccrTM36t6XQ7gJ9I0BlaeyBDavT8tTdgJZ6nzMJ9YU1eNcrz+plYQg==",
+        "resolved": "19.9.2",
+        "contentHash": "/SKL6aumBuIXJRBaW2zNXc9NljYYVDrXYk8X6O0jJh+ROg4T71LmFSqYzjrHoeXoVIZdh2QwzcnHGqxy3aEI8A==",
         "dependencies": {
-          "Argon": "0.3.1",
+          "Argon": "0.3.3",
           "DiffEngine": "11.1.0",
           "EmptyFiles": "4.1.0",
           "SimpleInfoName": "2.1.0"
