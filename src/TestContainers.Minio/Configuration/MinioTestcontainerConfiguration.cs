@@ -11,7 +11,7 @@ using IContainer = DotNet.Testcontainers.Containers.IContainer;
 
 namespace TestContainers.Minio.Configuration;
 
-[PublicAPI]
+[Obsolete("You should use MinioConfiguration")]
 public sealed class MinioTestcontainerConfiguration : TestcontainerDatabaseConfiguration
 {
     private const string Tag = "RELEASE.2023-01-31T02-24-19Z";

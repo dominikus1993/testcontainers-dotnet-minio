@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Containers;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.Logging;
 namespace TestContainers.Minio.Container;
 
 [PublicAPI]
+[Obsolete("You should use MinioContainer")]
 public sealed class MinioTestcontainer : TestcontainerDatabase
 {
     /// <summary>

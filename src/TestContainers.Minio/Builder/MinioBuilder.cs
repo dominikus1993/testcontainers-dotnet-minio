@@ -1,12 +1,12 @@
-using Docker.DotNet.Models;
 using DotNet.Testcontainers;
-using DotNet.Testcontainers.Builders;
-using DotNet.Testcontainers.Configurations;
 using TestContainers.Minio.Configuration;
 using TestContainers.Minio.Container;
+using TestContainers.Minio.Utils;
+using Guard = TestContainers.Minio.Utils.Guard;
 
 namespace TestContainers.Minio.Builder;
 
+[PublicAPI]
 public sealed class MinioBuilder : ContainerBuilder<MinioBuilder, MinioContainer, MinioConfiguration>
 {
     public const ushort MinioPort = 9000;
@@ -58,6 +58,10 @@ public sealed class MinioBuilder : ContainerBuilder<MinioBuilder, MinioContainer
     protected override void Validate()
     {
         base.Validate();
+
+        _ = Guard.Argument(DockerResourceConfiguration.Image).NotNull().NotEmpty();
+        _ = Guard.Argument(DockerResourceConfiguration.UserName).NotNull().NotEmpty();
+        _ = Guard.Argument(DockerResourceConfiguration.Password).NotNull().NotEmpty();
     }
     
     protected override MinioBuilder Clone(IResourceConfiguration<CreateContainerParameters> resourceConfiguration)
