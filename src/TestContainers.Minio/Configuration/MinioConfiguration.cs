@@ -2,38 +2,6 @@ using System;
 
 namespace TestContainers.Minio.Configuration;
 
-public sealed class MinioConfig
-{
-    public string Image => $"{ImageName}:{ImageTag}";
-    public string UserName { get; init; }
-    public string Password { get; init; }
-    public string ImageName { get; init; }
-    public string ImageTag { get; init; }
-    public int Port { get; init; }
-    public static readonly MinioConfig Default = new();
-
-    public MinioConfig(string UserName = "ROOTNAME", string Password = "ChangeMe2137",
-        string ImageName = "minio/minio",
-        string ImageTag = "RELEASE.2023-01-31T02-24-19Z", int Port = 9000)
-    {
-        this.UserName = UserName;
-        this.Password = Password;
-        this.ImageName = ImageName;
-        this.ImageTag = ImageTag;
-        this.Port = Port;
-    }
-
-    public void Deconstruct(out string UserName, out string Password, out string ImageName, out string ImageTag,
-        out int Port)
-    {
-        UserName = this.UserName;
-        Password = this.Password;
-        ImageName = this.ImageName;
-        ImageTag = this.ImageTag;
-        Port = this.Port;
-    }
-}
-
 [PublicAPI]
 public sealed class MinioConfiguration : ContainerConfiguration
 {

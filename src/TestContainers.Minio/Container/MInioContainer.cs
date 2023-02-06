@@ -16,6 +16,20 @@ public sealed class MinioContainer: DockerContainer
         return _configuration.UserName;
     }
     
+    public string GetPassword()
+    {
+        return _configuration.Password;
+    }
+    
+    public string GetAccessId()
+    {
+        return _configuration.UserName;
+    }
+    
+    public string GetAccessKey()
+    {
+        return _configuration.Password;
+    }
     
     public string GetMinioUrl()
     {
