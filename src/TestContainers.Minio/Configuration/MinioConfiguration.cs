@@ -2,30 +2,28 @@ using System;
 
 namespace TestContainers.Minio.Configuration;
 
+/// <inheritdoc cref="ContainerConfiguration" />
 [PublicAPI]
 public sealed class MinioConfiguration : ContainerConfiguration
 {
-    public string Image => $"{ImageName}:{ImageTag}";
     /// <summary>
     /// Minio UserName
     /// </summary>
-    public string UserName { get; init; }
+    public string UserName { get; }
     /// <summary>
     /// Minio Password
     /// </summary>
-    public string Password { get; init; }
-    public string ImageName { get; init; }
-    public string ImageTag { get; init; }
+    public string Password { get; }
 
-
-    public MinioConfiguration(string userName = "ROOTNAME", string password = "ChangeMe2137",
-        string imageName = "minio/minio",
-        string imageTag = "RELEASE.2023-01-31T02-24-19Z") : base()
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MinioConfiguration" /> class.
+    /// </summary>
+    /// <param name="userName">The Minio database.</param>
+    /// <param name="password">The Minio username.</param>
+    public MinioConfiguration(string userName = "ROOTNAME", string password = "ChangeMe2137") : base()
     {
         this.UserName = userName;
         this.Password = password;
-        this.ImageName = imageName;
-        this.ImageTag = imageTag;
     }
 
     /// <summary>
@@ -68,7 +66,5 @@ public sealed class MinioConfiguration : ContainerConfiguration
     {
         UserName = BuildConfiguration.Combine(oldValue.UserName, newValue.UserName);
         Password = BuildConfiguration.Combine(oldValue.Password, newValue.Password);
-        ImageName = BuildConfiguration.Combine(oldValue.ImageName, newValue.ImageName);
-        ImageTag = BuildConfiguration.Combine(oldValue.ImageTag, newValue.ImageTag);
     }
 }
