@@ -4,11 +4,11 @@
     "net6.0": {
       "AWSSDK.S3": {
         "type": "Direct",
-        "requested": "[3.7.103.2, )",
-        "resolved": "3.7.103.2",
-        "contentHash": "SGO7O93uERU0eEfsQk1GEVz/7/9T3X5kXRRlR6ls7OLzPHdLK3PKlh2Ci15CrruZkCwfPlT2Dryl8HgDWiAxoQ==",
+        "requested": "[3.7.103.4, )",
+        "resolved": "3.7.103.4",
+        "contentHash": "2OLpYCYeLDzNaJdRXYrkYZ1rxJmxovpTXTHwbx5ESTGBJgcWiXoPYbNVBvcTI5PT3AaL1upngN6eccZ86yMM4g==",
         "dependencies": {
-          "AWSSDK.Core": "[3.7.104.2, 4.0.0)"
+          "AWSSDK.Core": "[3.7.104.4, 4.0.0)"
         }
       },
       "Microsoft.NET.Test.Sdk": {
@@ -93,8 +93,8 @@
       },
       "AWSSDK.Core": {
         "type": "Transitive",
-        "resolved": "3.7.104.2",
-        "contentHash": "8bYWJvpNrdoA+xsYQHF38EY9OSafsCeuBhHVWd4P7GqnNzk3CEyx/AmxYtHdXUycK4WDtPB0IQmcfzQmVsrLSw=="
+        "resolved": "3.7.104.4",
+        "contentHash": "b8WRZuKUftl8JwWsjzkAXPZ7KOEERLwOY+MExyTWPVUMkEcuZxpjAupK2tSWQlmvEgjkGdNZWvFZZhEIXd07Sg=="
       },
       "DiffEngine": {
         "type": "Transitive",
@@ -1227,11 +1227,11 @@
     "net7.0": {
       "AWSSDK.S3": {
         "type": "Direct",
-        "requested": "[3.7.103.2, )",
-        "resolved": "3.7.103.2",
-        "contentHash": "SGO7O93uERU0eEfsQk1GEVz/7/9T3X5kXRRlR6ls7OLzPHdLK3PKlh2Ci15CrruZkCwfPlT2Dryl8HgDWiAxoQ==",
+        "requested": "[3.7.103.4, )",
+        "resolved": "3.7.103.4",
+        "contentHash": "2OLpYCYeLDzNaJdRXYrkYZ1rxJmxovpTXTHwbx5ESTGBJgcWiXoPYbNVBvcTI5PT3AaL1upngN6eccZ86yMM4g==",
         "dependencies": {
-          "AWSSDK.Core": "[3.7.104.2, 4.0.0)"
+          "AWSSDK.Core": "[3.7.104.4, 4.0.0)"
         }
       },
       "Microsoft.NET.Test.Sdk": {
@@ -1316,8 +1316,8 @@
       },
       "AWSSDK.Core": {
         "type": "Transitive",
-        "resolved": "3.7.104.2",
-        "contentHash": "8bYWJvpNrdoA+xsYQHF38EY9OSafsCeuBhHVWd4P7GqnNzk3CEyx/AmxYtHdXUycK4WDtPB0IQmcfzQmVsrLSw=="
+        "resolved": "3.7.104.4",
+        "contentHash": "b8WRZuKUftl8JwWsjzkAXPZ7KOEERLwOY+MExyTWPVUMkEcuZxpjAupK2tSWQlmvEgjkGdNZWvFZZhEIXd07Sg=="
       },
       "DiffEngine": {
         "type": "Transitive",
