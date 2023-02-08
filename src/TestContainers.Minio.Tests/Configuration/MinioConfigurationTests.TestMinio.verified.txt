@@ -1,7 +1,0 @@
-﻿{
-  Image: minio/minio:RELEASE.2023-01-31T02-24-19Z,
-  UserName: ROOTNAME,
-  Password: ChangeMe2137,
-  ImageName: minio/minio,
-  ImageTag: RELEASE.2023-01-31T02-24-19Z
-}
